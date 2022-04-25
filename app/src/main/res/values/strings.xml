@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Oskour</string>
+    <string name="app_name_maj">OSKOUR</string>
+    <string name="add_app">Nouvelle application</string>
+    <string name="exit">Quitter</string>
+    <string name="item_default_name">Nom de l\'application</string>
+    <string name="icone_image">icone_image</string>
+    <string name="modify">Modifier</string>
+    <string name="delete">Supprimer</string>
+    <string name="retour">Retour</string>
+    <string name="identifiant">Identifiant</string>
+    <string name="password">Mot de passe</string>
+    <string name="creer">Ajouter</string>
+</resources>
