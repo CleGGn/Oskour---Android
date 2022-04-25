@@ -13,10 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class UpdateActivity extends AppCompatActivity {
 
     EditText appName, appId, appPassword;
-    Button upgrade, delete;
+    FloatingActionButton upgrade, delete;
 
     String id_app, name, image, userId, userPassword;
 
@@ -33,7 +35,6 @@ public class UpdateActivity extends AppCompatActivity {
         upgrade = findViewById(R.id.upgradeApp);
         delete = findViewById(R.id.deleteApp);
 
-
         getAndSetIntentData();
 
         upgrade.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +45,7 @@ public class UpdateActivity extends AppCompatActivity {
                 userId = appId.getText().toString().trim();
                 userPassword = appPassword.getText().toString().trim();
                 db.updateData(id_app, name, userId, userPassword);
+                finish();
             }
         });
 
@@ -56,7 +58,7 @@ public class UpdateActivity extends AppCompatActivity {
         });
 
 
-        Button retour = findViewById(R.id.retour);
+        FloatingActionButton retour = findViewById(R.id.retour);
         retour.setOnClickListener(v -> { // Fonction qui quitte l'application
             finish();
         });

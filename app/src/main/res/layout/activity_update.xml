@@ -73,7 +73,25 @@
         app:layout_constraintTop_toBottomOf="@+id/upgradeId"
         app:layout_constraintVertical_bias="0.111" />
 
-    <Button
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteApp"
+        android:layout_width="134dp"
+        android:layout_height="56dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:text="@string/delete"
+        android:textSize="15sp"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upgradePassword"
+        app:layout_constraintVertical_bias="0.203"
+        app:srcCompat="@drawable/ic_delete" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/upgradeApp"
         android:layout_width="125dp"
         android:layout_height="55dp"
@@ -85,29 +103,13 @@
         app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upgradePassword"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.202"
+        app:srcCompat="@drawable/ic_modify" />
 
-    <Button
-        android:id="@+id/deleteApp"
-        android:layout_width="134dp"
-        android:layout_height="56dp"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#A8A8A8"
-        android:text="@string/delete"
-        android:textColor="@color/red"
-        android:textSize="15sp"
-        app:backgroundTint="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upgradePassword"
-        app:layout_constraintVertical_bias="0.206" />
-
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"
         android:layout_width="125dp"
         android:layout_height="55dp"
@@ -116,12 +118,12 @@
         android:text="@string/retour"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upgradeApp"
-        app:layout_constraintVertical_bias="0.464" />
-
+        app:layout_constraintVertical_bias="0.464"
+        app:srcCompat="@drawable/ic_back"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

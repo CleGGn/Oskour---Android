@@ -79,7 +79,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_USERID, userId);
         cv.put(COLUMN_USERPASSWORD, userPassword);
 
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        long result = db.update(TABLE_NAME, cv, "id= ?", new String[]{row_id});
         if (result == -1){
         Toast.makeText(context, "Echec !", Toast.LENGTH_SHORT).show();
         } else {
@@ -89,10 +89,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        long result = db.delete(TABLE_NAME, "id= ?", new String[]{row_id});
+
         if (result == -1){
             Toast.makeText(context, "Echec !", Toast.LENGTH_SHORT).show();
-        } else {
+        }else {
             Toast.makeText(context, "Application supprimée !", Toast.LENGTH_SHORT).show();
         }
     }
