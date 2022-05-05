@@ -51,7 +51,6 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
-    holder.id_txt.setText(String.valueOf(id.get(position)));
     holder.app_name_txt.setText(String.valueOf(app_name.get(position)));
     holder.mainLayout.setOnClickListener(v -> {
     Intent intent = new Intent(context, UpdateActivity.class);
@@ -77,7 +76,6 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            id_txt = itemView.findViewById(R.id.id_app);
             app_name_txt = itemView.findViewById(R.id.app_name);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }

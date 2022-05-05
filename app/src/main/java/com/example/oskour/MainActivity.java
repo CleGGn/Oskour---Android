@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CustomAdapter customAdapter;
     ArrayList<String>  id, app_name, app_image, user_id, user_password;
-
+    ImageView empty;
+    TextView empty_ic;
     FloatingActionButton exit;
     FloatingActionButton add;
 
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        empty = findViewById(R.id.empty_data);
+        empty_ic = findViewById(R.id.empty_ic);
 
         recyclerView = findViewById(R.id.list_app_view);
         db = new DataBaseHelper(MainActivity.this);
@@ -74,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
     void storeDataInArrays(){
         Cursor cursor = db.readAllData();
         if (cursor.getCount() == 0){
-            Toast.makeText(this, "Pas de données", Toast.LENGTH_SHORT).show();
+            empty.setVisibility(View.VISIBLE);
+            empty_ic.setVisibility(View.VISIBLE);
         } else {
             while (cursor.moveToNext()){
                 id.add(cursor.getString(0));
@@ -83,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 user_id.add(cursor.getString(3));
                 user_password.add(cursor.getString(4));
             }
+            empty.setVisibility(View.GONE);
+            empty_ic.setVisibility(View.GONE);
         }
     }
 }

@@ -75,5 +75,32 @@
         android:focusable="true"
         app:srcCompat="@drawable/ic_exit" />
 
+    <ImageView
+        android:id="@+id/empty_data"
+        android:layout_width="148dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="256dp"
+        android:alpha="0.4"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bad" />
+
+    <TextView
+        android:id="@+id/empty_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:text="C'est vide"
+        android:textSize="20sp"
+        android:alpha="0.4"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empty_data" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
