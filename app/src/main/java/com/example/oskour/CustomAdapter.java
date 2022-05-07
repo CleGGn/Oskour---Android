@@ -53,7 +53,7 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
     holder.app_name_txt.setText(String.valueOf(app_name.get(position)));
     holder.mainLayout.setOnClickListener(v -> {
-    Intent intent = new Intent(context, UpdateActivity.class);
+    Intent intent = new Intent(context, DetailsActivity.class);
     intent.putExtra("id_app",String.valueOf(id.get(position)));
         intent.putExtra("app_name",String.valueOf(app_name.get(position)));
         intent.putExtra("app_image",String.valueOf(app_image.get(position)));

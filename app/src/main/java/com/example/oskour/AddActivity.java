@@ -9,10 +9,12 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class AddActivity extends AppCompatActivity {
 
-    EditText appName, appId, appPassword ;
     Button addApp;
+    TextInputEditText appPassword, appName, appId;
 
 
     @Override

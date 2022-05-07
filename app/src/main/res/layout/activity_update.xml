@@ -25,71 +25,87 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.049" />
 
-    <EditText
-        android:inputType="text"
-        android:id="@+id/upgradeAppName"
-        android:layout_width="306dp"
-        android:layout_height="46dp"
-        android:autofillHints="name"
-        android:hint="@string/item_default_name"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.134" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/upgradeNameLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="40sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
-    <EditText
-        android:inputType="text"
-        android:id="@+id/upgradeId"
-        android:layout_width="306dp"
-        android:layout_height="46dp"
-        android:autofillHints="id"
-        android:hint="@string/identifiant"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upgradeAppName"
-        app:layout_constraintVertical_bias="0.091" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upgradeAppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/item_default_name"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.134" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/upgradePassword"
-        android:layout_width="306dp"
-        android:layout_height="46dp"
-        android:autofillHints="password"
-        android:hint="@string/password"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upgradeId"
-        app:layout_constraintVertical_bias="0.111" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/upgradeIdLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upgradeNameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upgradeId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/identifiant"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeIdLayout"
+            app:layout_constraintVertical_bias="0.091" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteApp"
-        android:layout_width="134dp"
-        android:layout_height="56dp"
-        android:background="@drawable/buttonshape"
-        android:shadowColor="#A8A8A8"
-        android:text="@string/delete"
-        android:textSize="15sp"
-        app:backgroundTint="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upgradePassword"
-        app:layout_constraintVertical_bias="0.203"
-        app:srcCompat="@drawable/ic_delete" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/upgradepasswordLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="30sp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upgradeIdLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upgradePassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autofillHints="password"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:scrollbarStyle="insideOverlay"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/upgradeApp"
@@ -103,11 +119,10 @@
         app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upgradePassword"
-        app:layout_constraintVertical_bias="0.202"
-        app:srcCompat="@drawable/ic_modify" />
+        app:layout_constraintTop_toBottomOf="@+id/upgradepasswordLayout"
+        app:layout_constraintVertical_bias="0.198"
+        app:srcCompat="@drawable/ic_check" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/retour"
