@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -31,9 +32,9 @@ public class AddActivity extends AppCompatActivity {
 
         addApp.setOnClickListener(v -> {
             DataBaseHelper myDB = new DataBaseHelper(AddActivity.this);
-            myDB.addApp(appName.getText().toString().trim(),
-                    appId.getText().toString().trim(),
-                    appPassword.getText().toString().trim());
+            myDB.addApp(Objects.requireNonNull(appName.getText()).toString().trim(),
+                    Objects.requireNonNull(appId.getText()).toString().trim(),
+                    Objects.requireNonNull(appPassword.getText()).toString().trim());
             Intent intent = new Intent(AddActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

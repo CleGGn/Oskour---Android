@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
-
     private final Context context;
     private final ArrayList<String> id;
     private final ArrayList<String> app_name;
@@ -23,7 +22,6 @@ public class CustomAdapter  extends RecyclerView.Adapter<CustomAdapter.MyViewHol
     private final ArrayList<String> user_id;
     private final ArrayList<String> user_password;
     Activity activity;
-
 
     CustomAdapter(Activity activity,
                   Context context,

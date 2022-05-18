@@ -1,24 +1,15 @@
 package com.example.oskour;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import java.util.Objects;
 
 public class UpdateActivity extends AppCompatActivity {
-
-
     FloatingActionButton upgrade;
     TextInputEditText appPassword, appName, appId;
 
@@ -38,24 +29,21 @@ public class UpdateActivity extends AppCompatActivity {
 
         getAndSetIntentData();
 
-        upgrade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DataBaseHelper db = new DataBaseHelper(UpdateActivity.this);
-                name = appName.getText().toString().trim();
-                userId = appId.getText().toString().trim();
-                userPassword = appPassword.getText().toString().trim();
-                db.updateData(id_app, name, userId, userPassword);
-                finish();
-            }
+        upgrade.setOnClickListener(v -> {
+            DataBaseHelper db = new DataBaseHelper(UpdateActivity.this);
+            name = Objects.requireNonNull(appName.getText()).toString().trim();
+            userId = Objects.requireNonNull(appId.getText()).toString().trim();
+            userPassword = Objects.requireNonNull(appPassword.getText()).toString().trim();
+            db.updateData(id_app, name, userId, userPassword);
+            finish();
         });
 
         FloatingActionButton retour = findViewById(R.id.retour);
         retour.setOnClickListener(v -> { // Fonction qui quitte l'application
             finish();
         });
-
     }
+
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id_app")
                 && getIntent().hasExtra("app_name")
@@ -76,19 +64,4 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(this,"Pas de données",Toast.LENGTH_SHORT).show();
         }
     }
-
-    void confirmDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Supprimer " + name + " ?");
-        builder.setMessage("Êtes-vous sur de vouloir supprimer " + name + " ?");
-        builder.setPositiveButton("Oui", (dialog, i) -> {
-            DataBaseHelper db = new DataBaseHelper(UpdateActivity.this);
-            db.deleteOneRow(id_app);
-            finish();
-        });
-        builder.setNegativeButton("Non", (dialog, i) -> {
-        });
-        builder.create().show();
-    }
-
 }

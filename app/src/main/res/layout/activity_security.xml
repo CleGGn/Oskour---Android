@@ -26,11 +26,11 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/security_btn"
         android:layout_width="152dp"
         android:layout_height="179dp"
-        android:layout_marginTop="60dp"
-        android:contentDescription="fingerprint"
+        android:layout_marginTop="116dp"
+        android:contentDescription="@string/fingerprint"
         android:src="@drawable/ic_fingerprint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -38,25 +38,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/security_msg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:id="@+id/info_msg"
+        android:layout_width="255dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/security_check"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/security_btn" />
 
-    <Button
-        android:id="@+id/security_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Connexion"
+    <TextView
+        android:id="@+id/security_msg"
+        android:layout_width="341dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="44dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/security_msg" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,10 @@
     <string name="identifiant">Identifiant</string>
     <string name="password">Mot de passe</string>
     <string name="creer">Ajouter</string>
+    <string name="connection">Connexion</string>
+    <string name="fingerprint">fingerprint</string>
+    <string name="show">Afficher</string>
+    <string name="security_check">Veuillez cliquer sur l\'image pour procéder à l\'identification.</string>
+    <string name="biometric_error">Votre appareil de dispose pas d\'un système d\'identification par biométrie.</string>
+    <string name="biometric_none">Votre appareil ne dispose d\'aucune empreinte enregistrée.</string>
 </resources>

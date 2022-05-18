@@ -4,33 +4,25 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    public final static String TAG = "MainActivity"; // Le TAG pour les Log
     DataBaseHelper db;
     RecyclerView recyclerView;
     CustomAdapter customAdapter;
     ArrayList<String>  id, app_name, app_image, user_id, user_password;
     ImageView empty;
     TextView empty_ic;
-    FloatingActionButton exit;
-    FloatingActionButton add;
+    FloatingActionButton exit, add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
         empty = findViewById(R.id.empty_data);
         empty_ic = findViewById(R.id.empty_ic);
-
-
         recyclerView = findViewById(R.id.list_app_view);
+        exit = findViewById(R.id.exit);
+        add = findViewById(R.id.btn_add);
+
         db = new DataBaseHelper(MainActivity.this);
         id = new ArrayList<>();
         app_name = new ArrayList<>();
@@ -51,22 +44,17 @@ public class MainActivity extends AppCompatActivity {
         user_id = new ArrayList<>();
         user_password = new ArrayList<>();
 
-        exit = findViewById(R.id.exit);
         exit.setOnClickListener(v -> { // Fonction qui quitte l'application
-            Log.i(TAG, "clicExit");
             finish();
             System.exit(0);
         });
-
-        add = findViewById(R.id.btn_add);
         add.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), AddActivity.class);
             v.getContext().startActivity(intent);
         });
-
         storeDataInArrays();
-        customAdapter = new CustomAdapter(MainActivity.this, this, id, app_name, app_image, user_id, user_password);
 
+        customAdapter = new CustomAdapter(MainActivity.this, this, id, app_name, app_image, user_id, user_password);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }

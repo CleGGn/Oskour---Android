@@ -2,31 +2,22 @@ package com.example.oskour;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class DetailsActivity extends AppCompatActivity {
-
     TextView appName, appId, appPassword;
-    FloatingActionButton upgrade, delete;
+    FloatingActionButton upgrade, delete, retour;
     CheckBox checkbox;
-
     String id_app, name, image, userId, userPassword;
 
     @Override
@@ -35,55 +26,42 @@ public class DetailsActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_details);
-
         appName = findViewById(R.id.upgradeAppName);
         appId = findViewById(R.id.upgradeId);
         appPassword = findViewById(R.id.upgradePassword);
         upgrade = findViewById(R.id.upgradeApp);
         delete = findViewById(R.id.deleteApp);
-
+        retour = findViewById(R.id.retour);
         checkbox = findViewById(R.id.btn_checkbox);
-        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    appPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                } else {
-                    appPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
+        checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                appPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                appPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
 
         getAndSetIntentData();
 
-        upgrade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailsActivity.this, UpdateActivity.class);
-                intent.putExtra("id_app",id_app);
-                intent.putExtra("app_name",name);
-                intent.putExtra("app_image",image);
-                intent.putExtra("user_id",userId);
-                intent.putExtra("user_password",userPassword);
-                startActivityForResult(intent,1);
-            }
+        upgrade.setOnClickListener(v -> {
+            Intent intent = new Intent(DetailsActivity.this, UpdateActivity.class);
+            intent.putExtra("id_app",id_app);
+            intent.putExtra("app_name",name);
+            intent.putExtra("app_image",image);
+            intent.putExtra("user_id",userId);
+            intent.putExtra("user_password",userPassword);
+            startActivityForResult(intent,1);
+        });
+        delete.setOnClickListener(v -> {
+            Log.i("voici", "nom app " + appName);
+            confirmDialog();
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("voici", "nom app " + appName);
-                confirmDialog();
-            }
-        });
-
-
-        FloatingActionButton retour = findViewById(R.id.retour);
         retour.setOnClickListener(v -> { // Fonction qui quitte l'application
             finish();
         });
-
     }
+
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id_app")
                 && getIntent().hasExtra("app_name")
@@ -118,5 +96,4 @@ public class DetailsActivity extends AppCompatActivity {
         });
         builder.create().show();
     }
-
 }
