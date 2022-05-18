@@ -33,7 +33,10 @@
         android:autofillHints="name"
         android:hint="@string/item_default_name"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:background="@drawable/my_border"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,22 +51,25 @@
         android:layout_width="306dp"
         android:layout_height="46dp"
         android:autofillHints="id"
-        android:textColorHint="@color/black"
+        android:background="@drawable/my_border"
+        android:gravity="center"
         android:hint="@string/identifiant"
         android:inputType="text"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upgradeAppName"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.088" />
 
     <LinearLayout
         android:id="@+id/passwordLayout"
         android:layout_width="314dp"
-        android:layout_height="56dp"
+        android:layout_height="80dp"
         android:layout_margin="40dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -77,6 +83,8 @@
             android:layout_height="wrap_content"
             android:autofillHints="password"
             android:ems="10"
+            android:padding="5dp"
+            android:background="@drawable/my_border"
             android:gravity="center"
             android:hint="@string/password"
             android:textColorHint="@color/black"
@@ -84,7 +92,7 @@
             android:scrollbarStyle="insideOverlay"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="25sp" />
 
         <CheckBox
             android:id="@+id/btn_checkbox"

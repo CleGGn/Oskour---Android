@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         empty = findViewById(R.id.empty_data);
         empty_ic = findViewById(R.id.empty_ic);
 
+
         recyclerView = findViewById(R.id.list_app_view);
         db = new DataBaseHelper(MainActivity.this);
         id = new ArrayList<>();
