@@ -16,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     DataBaseHelper db;
     RecyclerView recyclerView;
     CustomAdapter customAdapter;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.list_app_view);
         exit = findViewById(R.id.exit);
         add = findViewById(R.id.btn_add);
-
         db = new DataBaseHelper(MainActivity.this);
         id = new ArrayList<>();
         app_name = new ArrayList<>();

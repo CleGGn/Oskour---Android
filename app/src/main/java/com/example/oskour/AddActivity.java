@@ -5,18 +5,14 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.textfield.TextInputEditText;
-
 import java.util.Objects;
 
 public class AddActivity extends AppCompatActivity {
 
     Button addApp;
     TextInputEditText appPassword, appName, appId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +35,6 @@ public class AddActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
 
         Button retour = findViewById(R.id.retour);
         retour.setOnClickListener(v -> { // Fonction qui quitte l'application

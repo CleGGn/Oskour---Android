@@ -7,39 +7,37 @@
     android:background="@drawable/kite"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="342dp"
         android:layout_height="80dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/adelia"
         android:text="@string/app_name_maj"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="55sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/yellow"
         android:clickable="true"
+        android:contentDescription="@string/add_app"
         android:focusable="true"
+        app:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.033"
+        app:layout_constraintVertical_bias="0.082"
         app:srcCompat="@drawable/ic_add" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_app_view"
@@ -73,7 +71,8 @@
         app:layout_constraintVertical_bias="0.374"
         android:clickable="true"
         android:focusable="true"
-        app:srcCompat="@drawable/ic_exit" />
+        app:srcCompat="@drawable/ic_exit"
+        android:contentDescription="@string/exit" />
 
     <ImageView
         android:id="@+id/empty_data"
@@ -86,14 +85,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_bad" />
+        app:srcCompat="@drawable/thinking"
+        android:contentDescription="@string/fingerprint" />
 
     <TextView
         android:id="@+id/empty_ic"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:text="C'est vide"
+        android:text="@string/empty"
         android:textSize="20sp"
         android:alpha="0.4"
         android:visibility="gone"

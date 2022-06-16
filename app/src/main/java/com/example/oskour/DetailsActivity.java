@@ -42,7 +42,6 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         getAndSetIntentData();
-
         upgrade.setOnClickListener(v -> {
             Intent intent = new Intent(DetailsActivity.this, UpdateActivity.class);
             intent.putExtra("id_app",id_app);

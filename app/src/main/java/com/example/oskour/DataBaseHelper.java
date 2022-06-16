@@ -14,9 +14,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private final Context context;
     private static final String DATABASE_NAME = "Oskour.db";
     private static final int DATABASE_VERSION = 1;
-
     private static final String TABLE_NAME = "Oskourdatabase";
-
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_APPNAME = "app_name";
     private static final String COLUMN_APPIMAGE = "app_image";
@@ -48,11 +46,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void addApp(String app, String id, String password ){
         SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_APPNAME, app);
         cv.put(COLUMN_USERID, id);
         cv.put(COLUMN_USERPASSWORD, password);
+
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1){
             Toast.makeText(context, "Echec de l'ajout", Toast.LENGTH_SHORT).show();
